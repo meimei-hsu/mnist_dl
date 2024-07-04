@@ -1,0 +1,16 @@
+""""How well does the program recognize handwritten digits? 
+Start by loading in the MNIST data with a helper program, mnist_loader.py.
+After loading the MNIST data, we'll set up a Network of 30 hidden neurons 
+with the neural network object we defined, network.py.
+Finally, we'll use stochastic gradient descent to learn from the 
+MNIST training_data over 30 epochs, with a mini-batch size of 10, 
+and a learning rate of η=3.0.
+"""
+
+import mnist_loader
+training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
+
+import network
+net = network.Network([784, 100, 10])
+
+net.SGD(training_data, 30, 10, 3.0, test_data=test_data)
